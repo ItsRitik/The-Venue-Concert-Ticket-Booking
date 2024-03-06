@@ -32,7 +32,7 @@ const Pricing = () => {
     }
 
     // Check if the user already has 4 items in the cart
-    if (user.cart.length === 4) {
+    if (user.cart && user.cart.length === 4) {
       // You can display a message or handle this situation as needed
       alert('You can only add up to 4 items to your cart.');
       return;
@@ -72,7 +72,6 @@ const Pricing = () => {
               runAction={() => handleAddToCart(item)}
               iconSize="25"
               color="yellow"
-              disabled={user.cart.length === 4}
            // Disable the button if the cart already has 4 items
             />
           </div>

@@ -26,9 +26,8 @@ const UserCart = (props) => {
       (total, item) => total + item.price * item.quantity,
       0
     );
-    const tax = subtotal * 0.12; // 12% tax
-    const orderTotal = subtotal + tax; // Order total including tax
-    return { subtotal, tax, orderTotal };
+ // Order total including tax
+    return { subtotal };
   };
 
   const generateUnits = () => [
@@ -36,27 +35,30 @@ const UserCart = (props) => {
       description: 'Tickets',
       amount: {
         currency_code: 'USD',
-        value: calculateTotal(),
+        value: calculateTotal().subtotal.toFixed(2), // Convert to string
         breakdown: {
           item_total: {
             currency_code: 'USD',
-            value: calculateTotal(),
+            value: calculateTotal().subtotal.toFixed(2), // Convert to string
           },
         },
       },
       items: generateItems(),
     },
   ];
+  
+  
 
   const generateItems = () =>
-    props.users.cart.map((item) => ({
-      unit_amount: {
-        currency_code: 'USD',
-        value: item.price,
-      },
-      quantity: item.quantity,
-      name: item.Type,
-    }));
+  props.users.cart.map((item) => ({
+    unit_amount: {
+      currency_code: 'USD',
+      value: item.price.toFixed(2), // Use the item price without tax
+    },
+    quantity: item.quantity,
+    name: item.Type,
+  }));
+
 
   useEffect(() => {
     if (notifications && notifications.success) {
@@ -76,20 +78,12 @@ const UserCart = (props) => {
             removeItem={(position) => removeItem(position)}
             updateQuantity={(index, action) => updateQuantity(index, action)}
           />
-          <div class="p-4 bg-gray-100">
-  <div class="flex justify-between">
-    <div>Subtotal</div>
+          <div className="p-4 bg-gray-100">
+  <div className="flex justify-between pt-2">
+    <div>Order total</div>
     <div>${calculateTotal().subtotal.toFixed(2)}</div>
   </div>
-  <div class="flex justify-between">
-    <div>Tax estimate (12%)</div>
-    <div>${calculateTotal().tax.toFixed(2)}</div>
-  </div>
-  <div class="flex justify-between border-t border-gray-400 pt-2">
-    <div>Order total</div>
-    <div>${calculateTotal().orderTotal.toFixed(2)}</div>
-  </div>
-  <div class="flex justify-between pt-4">
+  <div className="flex justify-between pt-4">
   {loading ? (
             <Loader />
           ) : (
@@ -102,9 +96,11 @@ const UserCart = (props) => {
                   disableFunding: 'credit,card',
                 }}
                 createOrder={(data, actions) => {
-                  return actions.order.create({
+                  const orderDetails = {
                     purchase_units: generateUnits(),
-                  });
+                  };
+                  console.log('Order Details:', orderDetails);
+                  return actions.order.create(orderDetails);
                 }}
                 onSuccess={(details, data) => {
                   const purchasedTickets = props.users.cart.map((item) => ({
@@ -114,6 +110,7 @@ const UserCart = (props) => {
                   dispatch(userPurchaseSuccess(details.id, purchasedTickets));
                   setLoading(true);
                 }}
+
                 onCancel={(data) => {
                   setLoading(false);
                 }}

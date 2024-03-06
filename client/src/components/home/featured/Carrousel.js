@@ -21,25 +21,19 @@ const Carrousel = () => {
 
     const corrouselItems = [
         {
-            img: isMobile ? "/images/featured/taylor_1.jpeg" : "/images/featured/slide_one.jpg",
-            lineOne: 'Taylor Swift',
-            lineTwo: 'The Eras Tour',
-            linkTo: '/shop',
-            linkTitle: 'Buy Tickets Now!!',
+            img: isMobile ? "/images/featured/cold_1.jpg" : "/images/featured/coldplay_1.jpg",
+            lineOne: 'The Coldplay',
+            lineTwo: 'A Head Full of Dreams',
         },
         {
-            img: isMobile ? "/images/featured/taylor_2.jpeg" : "/images/featured/slide_two.jpg",
-            lineOne: 'Taylor Swift',
-            lineTwo: 'The Eras Tour',
-            linkTo: '/shop',
-            linkTitle: 'Buy Tickets Now!!',
+            img: isMobile ? "/images/featured/cold_2.jpeg" : "/images/featured/coldplay_2.jpg",
+            lineOne: 'The Coldplay',
+            lineTwo: 'A Head Full of Dreams',
         },
         {
-            img: isMobile ? "/images/featured/taylor_3.jpg" : "/images/featured/slide_three.jpg",
-            lineOne: 'Taylor Swift',
-            lineTwo: 'The Eras Tour',
-            linkTo: '/shop',
-            linkTitle: 'Buy Tickets Now!!',
+            img: isMobile ? "/images/featured/cold_3.jpg" : "/images/featured/coldplay_3.jpg",
+            lineOne: 'The Coldplay',
+            lineTwo: 'A Head Full of Dreams',
         },
     ];
 

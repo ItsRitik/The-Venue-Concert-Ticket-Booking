@@ -1,0 +1,32 @@
+.modal-content{
+    background-color: #1f2937;
+    color: white;
+    border-radius: 0;
+}
+.modal-title{
+    font-size: 2rem;
+    font-weight: 900;
+    color: #f3f4f6;
+}
+.modal-header{
+    border: 0;
+}
+
+.form-label{
+    font-weight: 600;
+}
+
+.form-control{
+    width: 50%;
+    margin: 0;
+    border-radius: 0;
+}
+
+.modal-body{
+    border: 0;
+    padding-block: 0;
+}
+
+.modal-footer{
+    border: 0;
+}

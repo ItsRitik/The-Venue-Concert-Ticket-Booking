@@ -25,11 +25,11 @@ const Sliders = ({ items }) => {
                           }}
                       >
                           <div className="featured_action absolute top-5 left-4 sm:top-1/2 sm:left-20">
-                              <div className=" title  bg-gradient-to-r from-amber-100 to-slate-300   p-2 text-2xl  uppercase sm:text-6xl   font-bold">
-                                  {item.lineOne}
-                              </div>
-                              <div className="tag low_title bg-gradient-to-r from-amber-100 to-slate-300  p-2 text-md uppercase sm:text-2xl  font-bold mt-2">
-                                  {item.lineTwo}
+                          <div className="title_line1 p-2 text-4xl uppercase sm:text-6xl font-bold">
+                            <span>{item.lineOne}</span>
+                        </div>
+                              <div className="title_line1 tag p-2 text-md uppercase sm:text-2xl  font-bold mt-2">
+                                  <span>{item.lineTwo}</span>
                               </div>
 
 

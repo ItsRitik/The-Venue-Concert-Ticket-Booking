@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal,  Form } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import "./modalStyle.css"
 
 const AddToCartHandler = ({ modal, handleClose, errorType, handleQuantitySubmit }) => {
   const [quantity, setQuantity] = useState(1); // Default quantity is 1
@@ -13,8 +14,9 @@ const AddToCartHandler = ({ modal, handleClose, errorType, handleQuantitySubmit 
   return (
     <>
       <Modal show={modal} onHide={handleClose} centered>
+        
         <Modal.Header closeButton>
-          <Modal.Title>{errorType === 'auth' ? 'Sorry :(' : 'Number of ticket'}</Modal.Title>
+          <Modal.Title >{errorType === 'auth' ? 'Sorry :(' : 'The Venue'}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {errorType === 'auth' ? (
@@ -22,7 +24,7 @@ const AddToCartHandler = ({ modal, handleClose, errorType, handleQuantitySubmit 
           ) : (
             <Form>
               <Form.Group controlId="quantity">
-                <Form.Label>Quantity</Form.Label>
+                <Form.Label>Tickets:</Form.Label>
                 <Form.Control as="select" value={quantity} onChange={(e) => setQuantity(e.target.value)}>
                   {[1, 2, 3, 4].map((value) => (
                     <option key={value} value={value}>
@@ -42,7 +44,7 @@ const AddToCartHandler = ({ modal, handleClose, errorType, handleQuantitySubmit 
           </button>
             </LinkContainer>
           ) : (
-            <button onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+            <button onClick={handleSubmit} className="text-white h-[80%] bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-3 ">
             Add to Cart
           </button>
           )}
