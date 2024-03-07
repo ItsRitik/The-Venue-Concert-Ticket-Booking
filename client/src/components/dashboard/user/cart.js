@@ -3,6 +3,7 @@ import DashboardLayout from '../../hoc/dashboardLayout';
 import Loader from '../../utils/loader';
 import CartDetail from './cartDetail';
 
+
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromCart, updateCartQuantity, userPurchaseSuccess } from 'store/actions/user.actions';
 
@@ -80,11 +81,11 @@ const UserCart = (props) => {
           />
           <div className="p-4 bg-gray-100">
   <div className="flex justify-between pt-2">
-    <div className='text-4xl font-bold'>Order total</div>
-    <div className='text-4xl font-bold'>${calculateTotal().subtotal.toFixed(2)}</div>
+    <div className='text-xl sm:text-4xl font-bold'>Order total</div>
+    <div className='text-xl sm:text-4xl font-bold'>${calculateTotal().subtotal.toFixed(2)}</div>
   </div>
   <hr />
-  <div className="text-xl  pt-4">
+  <div className="text-lg  pt-4">
     Pay With Paypal:
   {loading ? (
             <Loader />
@@ -93,7 +94,7 @@ const UserCart = (props) => {
               <PayPalButton
                 options={{
                   clientId:
-                    'AZ5ei5GxkSA6qk4cJ5hvrbrW0H0N7Om2i-foOYZpLEDitaE9D7IW-XZCeg4TKmZxJtuIIDH3rNetMZSU',
+                  process.env.DB_USER,
                   currency: 'USD',
                   disableFunding: 'credit,card',
                 }}

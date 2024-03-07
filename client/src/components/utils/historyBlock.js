@@ -142,7 +142,7 @@ const HistoryBlock = ({ userHistory }) => {
                     <td>{item.amount}</td>
                     <td>{item.orderID}</td>
                     <td>
-                  <PDFDownloadLink style={{color:"white", padding:"8px", backgroundColor:"#1d4ed8"}} document={<Invoice order={item} />} fileName={`Concert Ticket.pdf`}>
+                  <PDFDownloadLink style={{color:"Blue",fontSize:"12px", padding:"8px",}} document={<Invoice order={item} />} fileName={`Concert Ticket.pdf`}>
                     {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download Ticket')}
                   </PDFDownloadLink>
                 </td>
