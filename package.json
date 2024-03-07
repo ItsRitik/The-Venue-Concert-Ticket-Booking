@@ -36,7 +36,7 @@
     "xss-clean": "^0.1.4"
   },
   "engines": {
-    "node": "14.x"
+    "node": "18.x"
   },
   "devDependencies": {
     "gh-pages": "^6.1.1"
