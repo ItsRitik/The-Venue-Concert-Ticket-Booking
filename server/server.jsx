@@ -12,16 +12,13 @@ const cors = require('cors');
 const {handleError, convertToApiError} = require("../server/middleware/apiError");
 const { header } = require('express-validator');
 
-//mongodb+srv://ri7ikkale27:<password>@clusterproject.yzbysve.mongodb.net/?retryWrites=true&w=majority
+
 
 const mongoUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}?retryWrites=true&w=majority`;
 
 
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
-    // useUnifiedTopology: true,
-    // useCreateIndex: true,
-    // useFindAndModify: false
 });
 
 const corsOptions ={
@@ -29,10 +26,6 @@ const corsOptions ={
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
-
-// header('Access-Control-Allow_origin: *');
-// header('Access-Control-Allow_Methods: POST,GET,OPTIONS,PUT,DELETE');
-// header('Access-Control-Allow_Headers: Content-Type, X-Auth-Token, Origin, Authorization');
 
 app.use(cors(corsOptions));
 
@@ -57,9 +50,6 @@ app.use(convertToApiError)
 app.use((err,req,res,next)=>{
     handleError(err,res)
 })
-
-
-
 
 const port = process.env.PORT || 3001
 
