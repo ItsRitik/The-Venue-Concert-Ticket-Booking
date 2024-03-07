@@ -29,7 +29,6 @@
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.2",
     "mongoose-aggregate-paginate-v2": "^1.0.6",
-    "node": "^21.2.0",
     "nodemon": "^3.0.2",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
@@ -37,6 +36,6 @@
     "xss-clean": "^0.1.4"
   },
   "engines": {
-    "node": "18.x"
+    "node": "14.x"
   }
 }
