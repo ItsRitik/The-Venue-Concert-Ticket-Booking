@@ -12,7 +12,6 @@ const AuthForm = (props) => {
     const notifications = useSelector(state=> state.notifications);
     const [loading,setLoading] = useState(false);
     const dispatch = useDispatch();
-
     const formik = useFormik({
         initialValues:{ firstname:'', lastname:'',email:'',password:'' },
         validationSchema:Yup.object({
@@ -24,7 +23,8 @@ const AuthForm = (props) => {
             .matches(
                 /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/,
                 'Password must contain at least 8 characters, one letter, and one number'
-            ),
+            )
+
 
         }),
         onSubmit:( values)=>{

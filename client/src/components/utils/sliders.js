@@ -8,10 +8,12 @@ const Sliders = ({ items }) => {
     const settings = {
         dots: false,
         infinite: true,
-        speed: 500,
+        speed: 100,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
+        autoplay: true,        // Enable autoplay
+        autoplaySpeed: 5000    // Set autoplay interval to 4 seconds (4000 milliseconds)
     };
 
     const generateSlides = () =>

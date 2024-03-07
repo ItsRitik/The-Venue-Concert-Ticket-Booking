@@ -13,19 +13,19 @@ const CartDetail = React.memo(({ products, removeItem, updateQuantity }) => {
             <h4 className="text-sm text-center sm:text-xl font-semibold">No.of Tickets</h4>
               <div className="flex justify-center items-center">
                 <span className="text-sm sm:text-xl mr-2">${product.price} <b>X</b> </span>
-                <div
-                  className="border  rounded px-2  md:px-4"
-                  onClick={() => updateQuantity(index, 'DECREMENT')}
-                >
-                  -
-                </div>
-                <span className="mx-2">{product.quantity}</span>
-                <div
-                  className="border rounded px-2 md:px-4"
-                  onClick={() => updateQuantity(index, 'INCREMENT')}
-                >
-                  +
-                </div>
+                <button
+  className="border rounded bg-blue-500 text-white px-3 sm:px-8"
+  onClick={() => updateQuantity(index, 'DECREMENT')}
+>
+  -
+</button>
+<span className="mx-2">{product.quantity}</span>
+<button
+  className="border rounded bg-red-500 text-white px-3"
+  onClick={() => updateQuantity(index, 'INCREMENT')}
+>
+  +
+</button>
               </div>
             </div>
             <div className="item">

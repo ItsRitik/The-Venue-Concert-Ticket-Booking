@@ -82,7 +82,7 @@ const Pricing = () => {
   return (
     <div className="bck_b_light">
       <div className="center_wrapper pricing_section">
-        <h2>Pricing</h2>
+        <div className='text-6xl text-center p-4 bg-gradient-to-r from-orange-200 to-indigo-100 text-transparent bg-clip-text font-bold'>Pricing</div>
         <p className='text-white text-center'>// The maximum number of tickets that can be added to the cart and purchased at a time is four. </p>
 
         <div className="pricing_wrapper">{showBoxes()}</div>

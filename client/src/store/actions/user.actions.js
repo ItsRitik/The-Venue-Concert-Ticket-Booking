@@ -14,7 +14,7 @@ export const userRegister = (values) => {
                 password:values.password
             });
             dispatch(actions.userAuthenticate({data: user.data.user,auth: true}))
-            dispatch(actions.successGlobal('Welcome !! check you mail to verify account.'))
+            dispatch(actions.successGlobal('Welcome !!!'))
         } catch(error){
             console.log("deveracs")
             console.log(error.response.data.message)
@@ -59,6 +59,22 @@ export const userIsAuth = () => {
     }
 }
 
+export const userChangeEmail = (data) => {
+  return async(dispatch )=>{
+      try{
+          await axios.patch(`/api/users/email`,{
+              email: data.email,
+              newemail: data.newemail
+          });
+
+          dispatch(actions.userChangeEmail(data.newemail))
+          dispatch(actions.successGlobal('Good job, Email Changed'))
+      } catch(error){
+          dispatch(actions.errorGlobal(error.response.data.message))
+      }
+  }
+}  
+
 export const userSignOut = () => {
     return async(dispatch)=> {
         removeTokenCookie();
@@ -69,39 +85,40 @@ export const userSignOut = () => {
 }
 
 export const userAddToCart = (item, quantity) => {
-    return async (dispatch, getState) => {
-      try {
-        const { cart } = getState().users;
-        const totalQuantity = cart.reduce((acc, cartItem) => acc + cartItem.quantity, 0);
-        const existingItemIndex = cart.findIndex((cartItem) => cartItem.Type === item.Type);
-  
-        if (totalQuantity + quantity > 4) {
-          throw new Error(dispatch(actions.errorGlobal("Maximum 4 Tickets can be added to cart")));
-        }
-  
-        if (existingItemIndex !== -1) {
-          // Check if the total quantity including the new quantity exceeds the limit
-          const newTotalQuantity = totalQuantity - cart[existingItemIndex].quantity + quantity;
-          if (newTotalQuantity > 4) {
-            throw new Error(dispatch(actions.errorGlobal("Maximum 4 Tickets can be added to cart")));
-          }
-  
-          const updatedCart = [...cart];
-          updatedCart[existingItemIndex].quantity += quantity;
-          dispatch(actions.userAddToCart(updatedCart));
-          {quantity === 0 ?dispatch(actions.errorGlobal(`Cart Full :(`)) : dispatch(actions.successGlobal(`${quantity} ${item.Type} added to cart :)`));}
+  return async (dispatch, getState) => {
+    try {
+      const { cart } = getState().users;
+      const totalQuantity = cart.reduce((acc, cartItem) => acc + cartItem.quantity, 0);
+      const existingItemIndex = cart.findIndex((cartItem) => cartItem.Type === item.Type);
 
-        } else {
-          const newItem = { ...item, quantity };
-          dispatch(actions.userAddToCart([...cart, newItem]));
-          dispatch(actions.successGlobal(`${quantity} ${item.Type} added to cart :)`));
-        }
-      } catch (error) {
-        dispatch(actions.errorGlobal(error.message));
+      if (totalQuantity + quantity > 4) {
+        throw new Error("Maximum 4 Tickets can be added to cart");
       }
-    };
+
+      if (existingItemIndex !== -1) {
+        // Check if the total quantity including the new quantity exceeds the limit
+        const newTotalQuantity = totalQuantity - cart[existingItemIndex].quantity + quantity;
+        if (newTotalQuantity > 4) {
+          throw new Error("Maximum 4 Tickets can be added to cart");
+        }
+
+        const updatedCart = [...cart];
+        updatedCart[existingItemIndex].quantity += quantity;
+        dispatch(actions.userAddToCart(updatedCart));
+        quantity === 0
+          ? dispatch(actions.errorGlobal("Cart Full :("))
+          : dispatch(actions.successGlobal(`${quantity} ${item.Type} added to cart :)`));
+      } else {
+        const newItem = { ...item, quantity };
+        dispatch(actions.userAddToCart([...cart, newItem]));
+        dispatch(actions.successGlobal(`${quantity} ${item.Type} added to cart :)`));
+      }
+    } catch (error) {
+      console.log("--> add", JSON.stringify(error, null, 2));
+      dispatch(actions.errorGlobal(error.message || "An unexpected error occurred"));
+    }
   };
-  
+};
   
 
 export const removeFromCart = (position) => {

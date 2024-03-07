@@ -25,7 +25,7 @@ const VenueInfo = () => {
                                         Event Date & Time
                                     </div>
                                     <div className="vn_desc">
-                                        Jan 27 @01:20:00pm
+                                        March 30 @06:20:00 pm
                                     </div>
 
                                 </div>
@@ -48,7 +48,7 @@ const VenueInfo = () => {
                                         Event Location
                                     </div>
                                     <div className="vn_desc">
-                                        156 Terrace Ave, NJ 07307
+                                    620 Atlantic Ave, NY 11217
                                     </div>
 
                                 </div>

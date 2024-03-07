@@ -7,7 +7,8 @@ import {
     USER_ADD_TO_CART,
     GET_TICKET_BY_ID,
     GET_ALL_TICKET,
-    PURCHASE_SUCCESS
+    PURCHASE_SUCCESS,
+    USER_CHANGE_EMAIL
 } from '../types';
 
 
@@ -22,6 +23,11 @@ export const userAuthenticate = (user) => ({
 
 export const userSignOut = () => ({
     type:SIGN_OUT
+})
+
+export const userChangeEmail = (data) => ({
+    type:USER_CHANGE_EMAIL,
+    payload:data
 })
 
 export const userAddToCart = (data) => ({

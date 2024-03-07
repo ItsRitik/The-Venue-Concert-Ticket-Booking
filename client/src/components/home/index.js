@@ -20,7 +20,6 @@ const Home = () => {
         <div>
             <Featured/>
             <VenueInfo/>
-            {/* <Highlights/> */}
             <Pricing/>
             <Location/>
         </div>

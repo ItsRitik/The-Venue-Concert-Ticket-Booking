@@ -4,7 +4,8 @@ import {
     AUTH_USER,
     SIGN_OUT,
     USER_ADD_TO_CART,
-    PURCHASE_SUCCESS
+    PURCHASE_SUCCESS,
+    USER_CHANGE_EMAIL
   } from '../types';
   
   const loadState = () => {
@@ -54,11 +55,16 @@ import {
         const newStateSignOut = {
           ...state,
           data: { ...DEFAULT_USER_STATE.data },
-          auth: false
+          auth: false,
+          cart:[]
         };
-        saveState(newStateSignOut); // Save updated state to localStorage
+        // saveState(newStateSignOut); // Save updated state to localStorage
         return newStateSignOut;
-  
+        case USER_CHANGE_EMAIL:
+          return {
+              ...state,
+              data:{ ...state.data, email: action.payload }
+          }
       case USER_ADD_TO_CART:
         const newStateCart = {
           ...state,

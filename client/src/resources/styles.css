@@ -992,7 +992,9 @@ select {
 }
 
 .pp_button {
-    margin-top:10px
+    margin-top:10px;
+    width: 30%;
+    text-align: center;
 }
 
 .App {

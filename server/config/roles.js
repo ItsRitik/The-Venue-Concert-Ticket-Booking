@@ -12,10 +12,7 @@ let grantsObject = {
         profile:allRights
     },
     user:{
-        profile:{
-            'read:own':['*','!password','!_id'],
-            'update:own':['*']
-        }
+        profile:allRights
     }
 }
 

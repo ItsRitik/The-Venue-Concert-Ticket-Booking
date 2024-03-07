@@ -39,9 +39,9 @@ const AddToCartHandler = ({ modal, handleClose, errorType, handleQuantitySubmit 
         <Modal.Footer>
           {errorType === 'auth' ? (
             <LinkContainer to="/sign_in">
-                          <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                          Go to register / sign in
-          </button>
+                  <button  className="text-white h-[80%] bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-3 ">
+                  Go to register / sign in
+                  </button>                       
             </LinkContainer>
           ) : (
             <button onClick={handleSubmit} className="text-white h-[80%] bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-3 ">

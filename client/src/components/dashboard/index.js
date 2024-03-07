@@ -8,18 +8,18 @@ const UserDashboard = ({users}) => {
         <DashboardLayout title="Overview">
             <div className="user_nfo_panel">
             
-              <span>{users.data.firstname}</span>
-              <span>{users.data.lastname}</span>
-              <span>{users.data.email}</span>
+              <span className='p-1 text-xl'> {users.data.firstname}</span>
+              <span className='p-1 text-xl'>{users.data.lastname}</span>
+              <span className='p-1 text-xl'><b>Email:</b>{users.data.email}</span>
             
           
                 {
                     users.data.history ?
-                    <div className="user_nfo_panel">
-                        <h1>History of purchases</h1>
+                    <div className="bg-slate-100 p-3 mt-4">
+                        <h1 className='px-3 text-center text-3xl font-bold '>History of purchases</h1>
                         <div className="user_product_block_wrapper">
                         <HistoryBlock
-                                history={users.data.history}
+                                userHistory={users.data}
                             />
                         </div>
                     </div>

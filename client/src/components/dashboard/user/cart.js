@@ -80,10 +80,12 @@ const UserCart = (props) => {
           />
           <div className="p-4 bg-gray-100">
   <div className="flex justify-between pt-2">
-    <div>Order total</div>
-    <div>${calculateTotal().subtotal.toFixed(2)}</div>
+    <div className='text-4xl font-bold'>Order total</div>
+    <div className='text-4xl font-bold'>${calculateTotal().subtotal.toFixed(2)}</div>
   </div>
-  <div className="flex justify-between pt-4">
+  <hr />
+  <div className="text-xl  pt-4">
+    Pay With Paypal:
   {loading ? (
             <Loader />
           ) : (

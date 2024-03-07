@@ -9,13 +9,13 @@ export const links = [
     name: 'Overiew',
     linkTo: '/dashboard',
   },
+  // {
+  //   id: 2,
+  //   name: 'User information',
+  //   linkTo: '/dashboard/user/user_info',
+  // },
   {
     id: 2,
-    name: 'User information',
-    linkTo: '/dashboard/user/user_info',
-  },
-  {
-    id: 3,
     name: 'My cart',
     linkTo: '/dashboard/user/user_cart',
   },
@@ -34,7 +34,7 @@ const DashboardLayout = (props) => {
       <Link
         to={item.linkTo}
         key={item.id}
-        className="block py-2 px-4 text-xl font-bold text-white hover:bg-gray-700 hover:no-underline"
+        className="block bg-gray-900 border-y-2 border-blue-900 border-l-2 py-2 px-4 text-xl font-bold text-white hover:bg-gray-700 hover:no-underline"
       >
         {item.name}
       </Link>

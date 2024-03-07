@@ -45,10 +45,10 @@ const AppRoutes = (props) => {
           <Header users={users} signOutUser={signOutUser} />
           <MainLayout>
             <Switch>
-              <Route
+              {/* <Route
                 path="/dashboard/user/user_info"
                 component={AuthGuard(UserInfo)}
-              />
+              /> */}
               <Route path="/dashboard/user/user_cart" component={AuthGuard(UserCart)} />
               <Route path="/dashboard" component={AuthGuard(Dashboard)} />
               <Route path="/sign_in" component={RegisterLogin} />
