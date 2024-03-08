@@ -51,6 +51,9 @@
       "react-app/jest"
     ]
   },
+  "resolutions": {
+    "@react-pdf/font": "2.2.0"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
