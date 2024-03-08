@@ -9,6 +9,7 @@
     "@mui/icons-material": "^5.15.4",
     "@mui/material": "^5.15.4",
     "@react-pdf/font": "^2.2.0",
+    "@react-pdf/fontkit": "^2.1.2",
     "@react-pdf/renderer": "^2.1.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
