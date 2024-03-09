@@ -35,6 +35,9 @@
     "validator": "^13.11.0",
     "xss-clean": "^0.1.4"
   },
+  "engines": {
+    "node": "15.x"
+  },
   "devDependencies": {
     "gh-pages": "^6.1.1"
   }
