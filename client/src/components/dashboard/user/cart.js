@@ -93,8 +93,7 @@ const UserCart = (props) => {
             <div className="pp_button">
               <PayPalButton
                 options={{
-                  clientId:
-                  process.env.DB_USER,
+                  clientId:"ATrJPHJczkR-udmlDzuZgT2pT936-bsjG_Nmhks8rS9b9amSecUedUaqguZ5SkJKBs_ObEbOEKbazErq",
                   currency: 'USD',
                   disableFunding: 'credit,card',
                 }}

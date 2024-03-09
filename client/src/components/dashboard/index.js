@@ -19,7 +19,7 @@ const UserDashboard = ({users}) => {
                         <h1 className='px-3 text-center text-3xl font-bold '>History of purchases</h1>
                         <div className="user_product_block_wrapper">
                         <HistoryBlock
-                                userHistory={users.data}
+                                history={users.data.history}
                             />
                         </div>
                     </div>
