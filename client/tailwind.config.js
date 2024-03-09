@@ -4,6 +4,7 @@ module.exports = {
   "./src/**/*.js",
   "./src/**/*.jsx",
   "./public/index.html",],
+  enabled: process.env.NODE_ENV === "production",
   theme: {
     extend: {
       colors:{
