@@ -62,7 +62,7 @@ const Pricing = () => {
         <div className="pricing_inner_wrapper">
           <div className="pricing_title">
             <span>${item.price}</span>
-            <span>${item.Type}</span>
+            <span>{item.Type}</span>
           </div>
           <div className="pricing_description">{item.description}</div>
           <div className="pricing_buttons">
@@ -83,7 +83,7 @@ const Pricing = () => {
     <div className="bck_b_light">
       <div className="center_wrapper pricing_section">
         <div className='text-6xl text-center p-4 bg-gradient-to-r from-orange-200 to-indigo-100 text-transparent bg-clip-text font-bold'>Pricing</div>
-        <p className='text-white text-center'>// The maximum number of tickets that can be added to the cart and purchased at a time is four. </p>
+        <p className='text-white px-4 text-center'>// The maximum number of tickets that can be added to the cart and purchased at a time is four. </p>
 
         <div className="pricing_wrapper">{showBoxes()}</div>
         <AddToCartHandler
