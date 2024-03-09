@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { MenuIcon } from '@heroicons/react/solid';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import './header.css'; // Import your CSS file
 
 const Header = ({ users, signOutUser }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
