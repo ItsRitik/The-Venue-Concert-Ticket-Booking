@@ -19,6 +19,9 @@ const mongoUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${
 
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex:true,
+    useFindAndModify: false
 });
 
 const corsOptions ={
@@ -51,13 +54,13 @@ app.use((err,req,res,next)=>{
     handleError(err,res)
 })
 
-app.use(express.static('client/build'));
-if(process.env.NODE_ENV === 'production'){
-    const path = require('path');
-    app.get('/*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname,'../client','build','index.html'))
-    });
-}
+// app.use(express.static('client/build'));
+// if(process.env.NODE_ENV === 'production'){
+//     const path = require('path');
+//     app.get('/*',(req,res)=>{
+//         res.sendFile(path.resolve(__dirname,'../client','build','index.html'))
+//     });
+// }
 
 
 const port = process.env.PORT || 3001
