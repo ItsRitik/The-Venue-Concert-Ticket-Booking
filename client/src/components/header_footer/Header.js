@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MenuIcon } from '@heroicons/react/solid';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import './header.css'; // Import your CSS file
 
 const Header = ({ users, signOutUser }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -10,8 +11,9 @@ const Header = ({ users, signOutUser }) => {
   return (
     <header className="w-full h-[80px] z-10 flex justify-between items-center px-4 bg-cod-gray-900  text-gray-300">
       <div className="left">
-      <div className="logo text-3xl sm:text-5xl font-bold bg-gradient-to-r from-orange-200 to-indigo-100 text-transparent bg-clip-text">The Venue</div>
-
+        <Link to="/" className="border-none hover:no-underline bg-transparent">
+      <div className="logo text-3xl border-0 no-underline sm:text-5xl font-bold bg-gradient-to-r from-orange-200 to-indigo-100 text-transparent bg-clip-text">The Venue</div>
+      </Link>
       </div>
       <div className="right flex items-center">
         <div className="top flex items-center">
@@ -33,7 +35,7 @@ const Header = ({ users, signOutUser }) => {
                 Home
               </Link>
                 <Link to="/dashboard" className="hover:text-3xl hover:text-slate-100 transition-all duration-300 ease-in-out bg-gradient-to-r from-orange-200 to-indigo-100 text-transparent bg-clip-text text-2xl font-bold hover:no-underline">
-                  My account
+                  My Account
                 </Link>
                 <Link to="/dashboard/user/user_cart" className="bg-gradient-to-r from-orange-200 to-indigo-100 text-transparent bg-clip-text text-2xl font-bold hover:no-underline">
                   <Badge badgeContent={users.cart.reduce((acc, cartItem) => acc + cartItem.quantity, 0)} color="error">
@@ -44,7 +46,7 @@ const Header = ({ users, signOutUser }) => {
                   onClick={() => signOutUser()}
                   className="text-red-600 hover:text-red-700 hover:text-3xl cursor-pointer transition-all duration-300 ease-in-out text-2xl font-bold hover:no-underline"
                 >
-                  Log out
+                  Logout
                 </span>
               </div>
             </>
@@ -54,7 +56,7 @@ const Header = ({ users, signOutUser }) => {
                 Home
               </Link>
               <Link to="/sign_in" onClick={() => setMenuOpen(!isMenuOpen)} className="hover:text-3xl hover:text-slate-100 transition-all duration-300 ease-in-out bg-gradient-to-r from-orange-200 to-indigo-100 text-transparent bg-clip-text text-2xl font-bold hover:no-underline">
-                Log in
+                LogIn
               </Link>
             </div>
             
@@ -72,10 +74,10 @@ const Header = ({ users, signOutUser }) => {
             Home
           </Link>
           <Link onClick={() => setMenuOpen(!isMenuOpen)} to="/dashboard" className="bg-gradient-to-r from-orange-200 to-indigo-100 text-transparent bg-clip-text  bg-cod-gray-700 text-2xl font-bold block ml-0 p-2 hover:no-underline">
-            My account
+            My Account
           </Link>
           <span onClick={() => {signOutUser() ; setMenuOpen(!isMenuOpen);}} className="text-red-600 hover:text-red-700 hover:text-3xl cursor-pointer transition-all duration-300 ease-in-out bg-cod-gray-700 text-2xl font-bold block ml-0 p-2 hover:no-underline">
-            Log out
+            Logout
           </span>
           </>)
           :
@@ -85,7 +87,7 @@ const Header = ({ users, signOutUser }) => {
                 Home
               </Link>
               <Link to="/sign_in" onClick={() => setMenuOpen(!isMenuOpen)} className="bg-gradient-to-r from-orange-200 to-indigo-100 text-transparent bg-clip-text  bg-cod-gray-700 text-2xl font-bold block ml-0 p-2 hover:no-underline">
-                Log in
+                LogIn
               </Link>
           </>)}
 

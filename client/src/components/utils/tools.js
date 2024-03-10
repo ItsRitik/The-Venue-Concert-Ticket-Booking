@@ -37,7 +37,7 @@ export const WavesButton = (props) => {
         break;
         case "add_to_cart_link":
                 template = 
-                    <div className="add_to_cart_link"
+                    <div className=" add_to_cart_link"
                         onClick={()=>{
                             props.runAction()
                         }}

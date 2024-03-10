@@ -6,7 +6,7 @@ import { ChevronDownIcon } from '@heroicons/react/solid';
 export const links = [
   {
     id: 1,
-    name: 'Overiew',
+    name: 'Overview',
     linkTo: '/dashboard',
   },
   // {

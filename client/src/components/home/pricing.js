@@ -80,11 +80,10 @@ const Pricing = () => {
     ));
 
   return (
-    <div className="bck_b_light">
+    <div className="bck_pricing_light p-3 ">
       <div className="center_wrapper pricing_section">
         <div className='text-6xl text-center p-4 bg-gradient-to-r from-orange-200 to-indigo-100 text-transparent bg-clip-text font-bold'>Pricing</div>
-        <p className='text-white px-4 text-center'>// The maximum number of tickets that can be added to the cart and purchased at a time is four. </p>
-
+        <p className='text-white px-4 text-center'>// The <span className='text-red-500'>maximum</span> number of <span className='text-red-500'>tickets</span> that can be added to the cart and <span className='text-red-500'>purchased</span> at a time is <span className='text-red-500'>four</span>. </p>
         <div className="pricing_wrapper">{showBoxes()}</div>
         <AddToCartHandler
           modal={modal}
